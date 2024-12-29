@@ -21,12 +21,13 @@ app.use(cookieParser());
 
 app.use(
   cors({
-    origin: "*",
+    origin: "https://hows-app.vercel.app",
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
+
 
 app.use("/auth", authRoutes);
 app.use("/message", messageRoutes);
