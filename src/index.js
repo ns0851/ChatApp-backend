@@ -12,6 +12,11 @@ import bodyParser from "body-parser";
 const app = express();
 const PORT = process.env.PORT;
 
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
+
 app.use(
   cors({
     origin: "*",
