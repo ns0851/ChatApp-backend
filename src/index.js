@@ -12,22 +12,15 @@ import bodyParser from "body-parser";
 const app = express();
 const PORT = process.env.PORT;
 
+app.use(cors());
+
 app.use(express.json());
 app.use(express.json({ limit: "100mb", extended: true }));
 app.use(
   express.urlencoded({ limit: "100mb", extended: true, parameterLimit: 50000 })
 );
+
 app.use(cookieParser());
-
-app.use(
-  cors({
-    origin: "https://hows-app.vercel.app",
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-  })
-);
-
 
 app.use("/auth", authRoutes);
 app.use("/message", messageRoutes);
