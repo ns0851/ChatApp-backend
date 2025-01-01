@@ -13,13 +13,13 @@ const app = express();
 const PORT = process.env.PORT;
 
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'https://hows-app.vercel.app');
+  res.header('Access-Control-Allow-Origin', 'https://hows-app.vercel.app/');
   next();
 });
 
 app.use(
   cors({
-    origin: "https://hows-app.vercel.app",
+    origin: "https://hows-app.vercel.app/",
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
